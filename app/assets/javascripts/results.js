@@ -1,12 +1,17 @@
+//= include countdown.js
 var count=15;
 
 $(document).on("ready", function() {
-  $("#video")[0].play();
+  if ($("#video").length > 0) {
+    $("#video")[0].play();
+  }
+
   $("#video").on("ended", function() {
+    $("#question input[type=text]").focus();
     var counter = setInterval(timer, 1000); //1000 will  run it every 1 second
 
     function timer() {
-      $("#timer").text(count - 1);
+      // $("#timer").show().text(count);
       count=count-1;
       
       if (count <= 0) {
@@ -19,7 +24,6 @@ $(document).on("ready", function() {
     }
     $("#video").hide();
     $("#question").show();
-    $("#timer").show().text(count);
   });
 
   $("#end_timer").on("click", function() {

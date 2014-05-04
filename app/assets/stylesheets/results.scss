@@ -1,19 +1,20 @@
 #question {
   display: none;
+
+  input[type=text] {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+  }
 }
 
 #timer {
   display: none;
+  font-size: 40px;
 }
 
 #personal {
   display: none;
-}
-
-.container {
-  display: block;
-  width: 800px;
-  margin: auto;
 }
 
 #video {

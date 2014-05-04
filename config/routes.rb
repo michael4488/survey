@@ -1,6 +1,13 @@
 Survey::Application.routes.draw do
   get "static_pages/home"
-  resources :results
+  get "static_pages/error"
+  get "static_pages/admin"
+  get "static_pages/thankyou"
+  resources :results do 
+    collection do
+      post :admin_check
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

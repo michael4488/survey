@@ -14,4 +14,13 @@
 
 body {
   text-align: right;
+  direction: rtl;
+}
+
+.container {
+  display: block;
+  width: 800px;
+  margin: auto;
+  text-align: center;
+  margin-top: 100px;
 }

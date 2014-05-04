@@ -1,10 +1,15 @@
 
 = javascript_include_tag "results"
 = stylesheet_link_tag "results"
+- video_kind = rand(2)
 .container
   %video{id:"video"}
-    %source{src:"/assets/Adobe_After_Effect_laser_gun_test.mp4",width:"800",height:"400",type:"video/mp4"}
-    Your browser does not support this HTML5 video tag.
+    - if video_kind == 0
+      %source{src:"/assets/Adobe_After_Effect_laser_gun_test.mp4",width:"800",height:"400",type:"video/mp4"}
+      Your browser does not support this HTML5 video tag.
+    - else
+      %source{src:"/assets/Adobe_After_Effect_laser_gun_test.mp4",width:"800",height:"400",type:"video/mp4"}
+      Your browser does not support this HTML5 video tag.
 
   = form_for @result do |f|
     #question
@@ -12,8 +17,10 @@
       %br
       כמה שניות לדעתך, הופיעה נקודה כחולה בסרט?
       = f.text_field :time
-      %button{id:"end_timer",type:"button",class:"btn btn-primary"} המשך
+      %button{id:"end_timer",type:"button",class:"btn btn-primary", tabindex: 0} המשך
 
     #personal
+      =f.hidden_field :video_kind, value: video_kind
+      =label_tag "שם מלא"
       =f.text_field :name
       =f.submit("שלח")

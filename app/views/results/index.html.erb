@@ -5,7 +5,7 @@
     <tr>
       <th>Name</th>
       <th>Time</th>
-      <th></th>
+      <th>Video kind</th>
       <th></th>
       <th></th>
     </tr>
@@ -16,6 +16,7 @@
       <tr>
         <td><%= result.name %></td>
         <td><%= result.time %></td>
+        <td><%= result.video_kind %></td>
         <td><%= link_to 'Show', result %></td>
         <td><%= link_to 'Edit', edit_result_path(result) %></td>
         <td><%= link_to 'Destroy', result, method: :delete, data: { confirm: 'Are you sure?' } %></td>

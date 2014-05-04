@@ -1,6 +1,6 @@
 class ResultsController < ApplicationController
   before_action :set_result, only: [:show, :edit, :update, :destroy]
-
+  before_action :admin_only, only: [:index]
   # GET /results
   # GET /results.json
   def index
@@ -59,6 +59,7 @@ class ResultsController < ApplicationController
 
   def admin_check
     if params[:password] == "aviramtheking"
+      session[:account_session_id] = rand(99999)
       redirect_to results_path
     else
       redirect_to static_pages_home_path
@@ -74,5 +75,11 @@ class ResultsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def result_params
       params.require(:result).permit(:name, :time, :video_kind)
+    end
+
+    def admin_only
+      unless session[:account_session_id].present?
+        redirect_to static_pages_home_path and return
+      end
     end
 end

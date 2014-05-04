@@ -1,0 +1,19 @@
+
+= javascript_include_tag "results"
+= stylesheet_link_tag "results"
+.container
+  %video{id:"video"}
+    %source{src:"/assets/Adobe_After_Effect_laser_gun_test.mp4",width:"800",height:"400",type:"video/mp4"}
+    Your browser does not support this HTML5 video tag.
+
+  = form_for @result do |f|
+    #question
+      #timer
+      %br
+      כמה שניות לדעתך, הופיעה נקודה כחולה בסרט?
+      = f.text_field :time
+      %button{id:"end_timer",type:"button",class:"btn btn-primary"} המשך
+
+    #personal
+      =f.text_field :name
+      =f.submit("שלח")

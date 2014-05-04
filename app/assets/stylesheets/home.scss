@@ -1,0 +1,31 @@
+article {
+  width: auto;
+  
+  display: inline-block;
+}
+
+section {
+  display: inline-block;
+}
+
+#main {
+  margin: 0 auto;
+  width: 600px;
+}
+
+button {
+  margin: 10px 10px;
+  width: 150px;
+}
+
+.button {
+  float: left;
+}
+
+a {
+  color: white;
+}
+
+a:visited {
+  color: #eeeeee;
+}
